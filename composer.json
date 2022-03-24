@@ -1,0 +1,19 @@
+{
+    "name": "luis/app-salon",
+    "description": "php8, Gulp, npm, SASS, JS, HTML, SQL",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models"
+        }
+    },
+    "authors": [
+        {
+            "name": "luisBRK",
+            "email": "laberrezueta2@protonmail.com"
+        }
+    ],
+    "require": {}
+}
