@@ -1,5 +1,5 @@
 {
-    "name": "luis/app-salon",
+    "name": "",
     "description": "php8, Gulp, npm, SASS, JS, HTML, SQL",
     "type": "project",
     "autoload": {
@@ -12,7 +12,7 @@
     "authors": [
         {
             "name": "luisBRK",
-            "email": "laberrezueta2@protonmail.com"
+            "email": ""
         }
     ],
     "require": {}

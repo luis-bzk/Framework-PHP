@@ -1,18 +1,35 @@
 @use 'variables' as v;
 
 /** Media Queries **/
-@mixin phone {
+@mixin min_phone {
     @media (min-width: v.$telefono) {
         @content;
     }
 }
-@mixin tablet {
+@mixin min_tablet {
     @media (min-width: v.$tablet) {
         @content;
     }
 }
-@mixin desktop {
+@mixin min_desktop {
     @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+
+/** Media Queries **/
+@mixin max_phone {
+    @media (max-width: v.$telefono) {
+        @content;
+    }
+}
+@mixin max_tablet {
+    @media (max-width: v.$tablet) {
+        @content;
+    }
+}
+@mixin max_desktop {
+    @media (max-width: v.$desktop) {
         @content;
     }
 }
@@ -23,10 +40,9 @@
     padding: 1.5rem 2rem;
     color: $TextColor;
     margin-top: 2rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 400;
     display: inline-block;
-    font-weight: 700;
     border: none;
     transition-property: background-color;
     transition-duration: .3s;

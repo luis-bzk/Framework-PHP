@@ -9,8 +9,6 @@ body {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: v.$black;
-    color: v.$white;
 }
 *, *:before, *:after {
     box-sizing: inherit;
@@ -19,7 +17,7 @@ body {
     font-family: v.$fontPrincipal;
     font-size: 1.6rem;
 }
-.contenedor {
+.container {
     width: 95%;
     max-width: 1200px;
     margin: 0 auto;
