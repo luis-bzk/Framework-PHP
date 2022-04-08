@@ -1,21 +1,5 @@
 {
-  "name": "name",
-  "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/"
-  },
-  "author": "luis BC",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/"
-  },
-  "homepage": "https://github.com",
+  // paste before "author"
   "devDependencies": {
     "browser-sync": "^2.26.13",
     "cssnano": "^4.1.10",

@@ -1,0 +1,10 @@
+{
+    // paste in your autoload and custom
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models"
+        }
+    }
+}

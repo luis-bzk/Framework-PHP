@@ -9,7 +9,7 @@ function debug($variable) : string
 }
 
 // sintetize HTML
-function s($html) : string
+function sanitize($html) : string
 {
     return htmlspecialchars($html);
 }
