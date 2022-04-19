@@ -1,6 +1,6 @@
 <?php
 
-require 'funciones.php';
+require 'functions.php';
 require 'database.php';
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -8,5 +8,5 @@ require __DIR__ . '/../vendor/autoload.php';
 // conection database
 use Model\ActiveRecord;
 
-$db = conectarDB();
+$db = conectDB();
 ActiveRecord::setDB($db);

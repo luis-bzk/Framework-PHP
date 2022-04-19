@@ -1,11 +1,13 @@
 <?php
+
 namespace Model;
+
 class ActiveRecord {
 
-    // DATA base
+    // DATA BASE
     protected static $db;
     protected static $table = '';
-    protected static $columnasDB = [];
+    protected static $columnsDB = [];
 
     // messages and alerts
     protected static $alerts = [];
@@ -16,7 +18,7 @@ class ActiveRecord {
         self::$db = $database;
     }
 
-    public static function setAlerta($type, $message) 
+    public static function setAlert($type, $message) 
     {
         static::$alerts[$type][] = $message;
     }
@@ -67,10 +69,10 @@ class ActiveRecord {
     }
 
     // Identify and match the attributes of the database
-    public function attributes(): array
+    public function attributes()
     {
         $attributes = [];
-        foreach(static::$columnasDB as $column) {
+        foreach(static::$columnsDB as $column) {
             if($column === 'id') {
                 continue;
             }
@@ -80,7 +82,7 @@ class ActiveRecord {
     }
 
     // Sanitize the data before saves on the DB
-    public function sanitizeAttributes(): array
+    public function sanitizeAttributes()
     {
         $attributes = $this->attributes();
         $sanitized = [];
@@ -101,7 +103,7 @@ class ActiveRecord {
     }
 
     // Records - CRUD
-    public function save(): array
+    public function save()
     {
         $result = '';
         if(!is_null($this->id)) {
@@ -115,7 +117,7 @@ class ActiveRecord {
     }
 
     // All records
-    public static function all(): array
+    public static function all()
     {
         $query = "SELECT * FROM " . static::$table;
         return self::consultSQL($query);
@@ -137,8 +139,23 @@ class ActiveRecord {
         return array_shift( $result ) ;
     }
 
+     // Search a value in a column in a table where is a Reference
+    public static function where($column, $value) {
+        $query = "SELECT * FROM " . static::$table . " WHERE ${column} = '${value}'";
+        $result = self::consultSQL($query);
+        return array_shift( $result ) ;
+    }
+
+    // Pass your main consult SQL from a function
+    public static function SQL($consult) {
+        $query = $consult;
+        $result = self::consultSQL($query);
+        return $result;
+    }
+
+
     // crea un nuevo registro
-    public function create(): array
+    public function create()
     {
         // Sanitize data
         $attributes = $this->sanitizeAttributes();

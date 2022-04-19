@@ -1,11 +1,11 @@
 <?php
 
-function conectarDB(): mysqli{
+function conectDB(): mysqli{
     $db = new mysqli('localhost', 'root', '', '');
     // location, user, password, nameDB
 
     if (!$db) {
-        echo "No se pudo conectar a MySQL";
+        echo "An error ocurred, we can't connect with MySQL";
         exit;
     }
     return $db;

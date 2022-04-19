@@ -7,7 +7,7 @@ const cssnano = require('cssnano');
 const concat = require('gulp-concat');
 const terser = require('gulp-terser-js');
 const rename = require('gulp-rename');
-const imagemin = require('gulp-imagemin'); // Minificar imagenes 
+const imagemin = require('gulp-imagemin'); // Minificar images 
 const notify = require('gulp-notify');
 const cache = require('gulp-cache');
 const clean = require('gulp-clean');
@@ -16,7 +16,7 @@ const webp = require('gulp-webp');
 const paths = {
     scss: 'src/scss/**/*.scss',
     js: 'src/js/**/*.js',
-    imagenes: 'src/img/**/*'
+    images: 'src/img/**/*'
 }
 
 // css es una función que se puede llamar automaticamente
@@ -38,30 +38,30 @@ function javascript() {
       .pipe(dest('public/build/js'));
 }
 
-function imagenes() {
-    return src(paths.imagenes)
+function images() {
+    return src(paths.images)
         .pipe(cache(imagemin({ optimizationLevel: 3})))
         .pipe(dest('public/build/img'))
-        .pipe(notify({ message: 'Imagen Completada'}));
+        .pipe(notify({ message: 'Image Complete'}));
 }
 
-function versionWebp() {
-    return src(paths.imagenes)
+function webVersion() {
+    return src(paths.images)
         .pipe( webp() )
         .pipe(dest('public/build/img'))
-        .pipe(notify({ message: 'Imagen Completada'}));
+        .pipe(notify({ message: 'Image Complete'}));
 }
 
 
-function watchArchivos() {
+function watchFiles() {
     watch( paths.scss, css );
     watch( paths.js, javascript );
-    watch( paths.imagenes, imagenes );
-    watch( paths.imagenes, versionWebp );
+    watch( paths.images, images );
+    watch( paths.images, webVersion );
 }
   
 exports.css = css;
-exports.watchArchivos = watchArchivos;
-exports.default = parallel(css, javascript,  imagenes, versionWebp,  watchArchivos ); 
+exports.watchFiles = watchFiles;
+exports.default = parallel(css, javascript,  images, webVersion,  watchFiles ); 
 
 // only install gulp in yout computer and ruin 'gulp' for first time

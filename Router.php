@@ -22,10 +22,6 @@ class Router
         // protect Routes...
         session_start();
 
-        // Protected Routes array...
-        // $protected_routes = ['/admin', '/propiedades/crear', '/propiedades/actualizar', '/propiedades/eliminar', '/vendedores/crear', '/vendedores/actualizar', '/vendedores/eliminar'];
-
-        // $auth = $_SESSION['login'] ?? null;
 
         $currentUrl = $_SERVER['PATH_INFO'] ?? '/';
         $method = $_SERVER['REQUEST_METHOD'];
@@ -36,10 +32,9 @@ class Router
             $fn = $this->postRoutes[$currentUrl] ?? null;
         }
 
-
         if ( $fn ) {
             // Call user fn va a llamar una función cuando no sabemos cual sera
-            $fn($this); // This is for pass arguments
+            call_user_func($fn, $this); // This is for pass arguments
         } else {
             echo "Páge not found. 404";
         }
@@ -55,9 +50,9 @@ class Router
 
         ob_start(); // Almacenamiento en memoria durante un momento...
 
-        // entonces incluimos la vista en el layout
+        // include view on layout
         include_once __DIR__ . "/views/$view.php";
-        $content = ob_get_clean(); // Limpia el Buffer
+        $content = ob_get_clean(); // Clean Buffer
         include_once __DIR__ . '/views/layout.php';
     }
 }
